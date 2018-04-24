@@ -813,9 +813,9 @@ MonoBehaviour:
   textBox: {fileID: 1536914086}
   gravelMineCost: 10
   graniteMineCost: 100
-  metalMineCost: 0
-  obsidianMineCost: 0
-  goldMineCost: 0
+  metalMineCost: 500
+  obsidianMineCost: 1000
+  goldMineCost: 2000
 --- !u!4 &998559691
 Transform:
   m_ObjectHideFlags: 0
