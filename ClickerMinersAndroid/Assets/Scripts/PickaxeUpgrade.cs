@@ -12,11 +12,15 @@ public class PickaxeUpgrade : MonoBehaviour
     public Text levelDisplay;
     public Text costDisplay;
 
+	void Awake()
+	{
+		costDisplay.text = "$" + upgradeCost.ToString();
+	}
+
     // Use this for initialization
     void Start()
     {
         //pickaxeLevel = globalStats.pickaxeLevel;
-        costDisplay.text = upgradeCost.ToString();
         if (pickaxeLevel > 1)
         {
             for (int i = 1; i < pickaxeLevel; i++)
@@ -34,7 +38,7 @@ public class PickaxeUpgrade : MonoBehaviour
             levelDisplay.text = pickaxeLevel.ToString();
             GlobalClicks.currencyCount -= upgradeCost;
             UpgradeCostIncrease();
-            costDisplay.text = upgradeCost.ToString();
+			costDisplay.text = "$" + upgradeCost.ToString();
         }
     }
 
