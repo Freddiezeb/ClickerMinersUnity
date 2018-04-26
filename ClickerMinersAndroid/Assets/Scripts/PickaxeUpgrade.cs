@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -28,6 +29,11 @@ public class PickaxeUpgrade : MonoBehaviour
                 upgradeCost += (pickaxeLevel * upgradeMultiplier);
             }
         }
+    }
+
+    public void IncreaseCurrency()
+    {
+        GlobalClicks.currencyCount += (int)Math.Pow(pickaxeLevel, pickaxeLevel);
     }
 
     public void UpgradePickaxe()

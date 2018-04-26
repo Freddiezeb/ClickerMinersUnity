@@ -7,7 +7,7 @@ using UnityEngine.UI;
 public class GlobalClicks : MonoBehaviour
 {
     public GameObject currencyDisplay;
-    public static int currencyCount;
+    public static double currencyCount;
 //    private int internalCurrency;
 	private Text displayText;
 
