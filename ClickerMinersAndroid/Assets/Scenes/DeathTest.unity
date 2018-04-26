@@ -2909,7 +2909,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   textBox: {fileID: 1531487228}
   gravelMineCost: 10
-  graniteMineCost: 10
+  graniteMineCost: 100
   metalMineCost: 500
   obsidianMineCost: 1000
   goldMineCost: 2000
@@ -2934,6 +2934,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: e6f58219c22b8b540944c6d8420b1328, type: 3}
   - {fileID: 21300000, guid: ae87660657989de4c90a13769ea35a2b, type: 3}
   - {fileID: 21300000, guid: f452980077850794ba892e8fd093069e, type: 3}
+  - {fileID: 21300000, guid: a16e069896565774db9cde150e5024f2, type: 3}
 --- !u!4 &1717259427
 Transform:
   m_ObjectHideFlags: 0
