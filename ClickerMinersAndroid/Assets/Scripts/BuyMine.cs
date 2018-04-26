@@ -26,11 +26,19 @@ public class BuyMine : MonoBehaviour
 	Mine goldMine;
 
 	List<Mine> mineList;
+	public List<Text> mineTextList;  //(btn...Mine)Texts for displaying the cost of each Mine
+
 	List<int> minerCostList;
 
-	MinersUpgrade minerUpgrade;
+	public List<Text> minerTextList; //(btnBuyMiner)Texts for displaying the cost (index 0) and for the level (index 1) 
+	public List<Text> researchTextList; //(btnUpgradeMiner)Texts for displaying the cost (index 0) and for the level (index 1) 
 
-	SpriteRenderer spriteRenderer;
+	Button btnBuyMiner;
+	Button btnResearchUpgrade;
+
+	MinerUpgrade minerUpgrade; //Script that creates the miners
+
+	SpriteRenderer spriteRenderer; //the spriteRenderer of the stones
 
 	public Sprite[] stoneSprites;
 
@@ -39,43 +47,81 @@ public class BuyMine : MonoBehaviour
 		Initialize ();
 	}
 
-    public void BuyGravelMine()
+    void BuyGravelMine()
     {
 		HandleMine(gravelMine, 1);
     }
 
-    public void BuyGraniteMine()
+    void BuyGraniteMine()
     {
 		HandleMine(graniteMine, 2);
     }
 
-    public void BuyMetalMine()
+    void BuyMetalMine()
     {
 		HandleMine(metalMine, 0);
     }
 
-    public void BuyObsidianMine()
+    void BuyObsidianMine()
     {
 		HandleMine(obsidianMine, 0);
     }
 
-    public void BuyGoldMine()
+    void BuyGoldMine()
     {
 		HandleMine(goldMine, 0);
     }
 
 	/// <summary>
+	/// Buies the miner on click if its not unlocked.
+	/// otherwise it just activates the canvas for displaying the btnResearchUpgrade
+	/// </summary>
+	void BuyMinerOnClick()
+	{
+		//TODO
+		//Handle the logic of what happens when you press the buy miner button
+	
+		for (int i = 0; i < mineList.Count; i++) 
+		{
+			if (mineList [i].Active) 
+			{
+				if (!minerUpgrade.minerList [i].Unlocked) 
+				{
+					minerUpgrade.MinerPayment (minerUpgrade.minerList [i]);
+					return;
+				} 
+				else if (minerUpgrade.minerList [i].Unlocked) 
+				{
+					minerUpgrade.ShowResearchCanvas (true);
+				}
+			}
+		}
+	}
+
+	/// <summary>
+	/// Miners the upgrade on click.
+	/// </summary>
+	void ResearchUpgradeOnClick()
+	{
+		//TODO
+		//Handle the logic of what happens when you press the upgrade miner button 
+	}
+
+	/// <summary>
 	/// The payment method for the mine.
 	/// </summary>
 	/// <param name="mine">Mine.</param>
-	public void MinePayment(Mine mine, int spriteIndex)
+	void MinePayment(Mine mine, int spriteIndex)
 	{
 		if (GlobalClicks.currencyCount >= mine.Cost)
 		{
 			GlobalClicks.currencyCount -= mine.Cost;
 			mine.Unlocked = true;
+			int index = mineList.FindIndex (i => i.Name == mine.Name);
+			mineTextList[index].text = "Owned";
 			mine.Active = true;
-			minerUpgrade.ShowCanvas (true);
+			HandelResearchCanvas (mine);
+			minerUpgrade.ShowMinerCanvas (true);
 			setStoneSprite (spriteIndex);
 		}
 		else
@@ -100,18 +146,38 @@ public class BuyMine : MonoBehaviour
 			if (mine.Active)
 			{
 				mine.Active = false;
-				minerUpgrade.ShowCanvas (false);
+				minerUpgrade.ShowMinerCanvas (false);
 				setStoneSprite (0);
-
-			} else 
+			} 
+			else 
 			{
 				mine.Active = true;
-				minerUpgrade.ShowCanvas (true);
+				HandelResearchCanvas (mine);
+				minerUpgrade.ShowMinerCanvas (true);
 				setStoneSprite (spriteIndex);
 			}
 		}
 		Debug.Log (mine.Name + " Active: " + mine.Active.ToString ());
 	}
+
+	void HandelResearchCanvas(Mine mine)
+	{
+		int index = mineList.FindIndex (i => i.Name == mine.Name);
+//		Debug.Log (index);
+		if (minerUpgrade.minerList [index].Unlocked)
+		{
+			minerUpgrade.ShowResearchCanvas (true);
+			minerTextList[0].text = "";
+			minerTextList[1].text = "Owned";
+		} 
+		else if (!minerUpgrade.minerList [index].Unlocked) 
+		{
+			minerUpgrade.ShowResearchCanvas (false);
+			minerTextList[0].text = "$ " + minerUpgrade.minerList[index].Cost;
+			minerTextList[1].text = "";
+		}
+	}
+
 
 	/// <summary>
 	/// Unactivate mine all mines exept the current one if it is true.
@@ -133,12 +199,12 @@ public class BuyMine : MonoBehaviour
 	/// <returns>The text to zero alpha.</returns>
 	/// <param name="t">T.</param>
 	/// <param name="i">The index.</param>
-    public IEnumerator FadeTextToZeroAlpha(float t, Text i)
+    IEnumerator FadeTextToZeroAlpha(float t, Text text)
     {
-        i.color = new Color(i.color.r, i.color.g, i.color.b, 1);
-        while (i.color.a > 0.0f)
+        text.color = new Color(text.color.r, text.color.g, text.color.b, 1);
+        while (text.color.a > 0.0f)
         {
-            i.color = new Color(i.color.r, i.color.g, i.color.b, i.color.a - (Time.deltaTime / t));
+            text.color = new Color(text.color.r, text.color.g, text.color.b, text.color.a - (Time.deltaTime / t));
             yield return null;
         }
     }
@@ -147,14 +213,40 @@ public class BuyMine : MonoBehaviour
 	/// Sets the stone sprite.
 	/// </summary>
 	/// <param name="spriteIndex">Sprite index.</param>
-	void setStoneSprite (int spriteIndex) {
+	void setStoneSprite (int spriteIndex) 
+	{
 		spriteRenderer.sprite = stoneSprites [spriteIndex];
 	}
 
 	/// <summary>
 	/// Initialize resources.
 	/// </summary>
-	void Initialize(){
+	void Initialize()
+	{
+		GameObject temp = GameObject.Find ("btnBuyMiner");
+		if (temp != null) 
+		{
+			btnBuyMiner = temp.GetComponent<Button> ();
+			btnBuyMiner.onClick.AddListener (BuyMinerOnClick);
+			Debug.Log ("btnBuyMiner is initialized");
+		}
+		else 
+		{
+			Debug.Log ("Could not find btnBuyMiner in Scene");
+		}
+
+		temp = GameObject.Find ("btnResearchUpgrade");
+		if (temp != null) 
+		{
+			btnResearchUpgrade = temp.GetComponent<Button> ();
+			btnResearchUpgrade.onClick.AddListener (ResearchUpgradeOnClick);
+			Debug.Log ("btnMinerUpgrade is initialized");
+		} 
+		else 
+		{
+			Debug.Log ("Could not find btnUpgradeMiner in Scene");
+		}
+
 		gravelMine = new Mine ("gravelMine", gravelMineCost);
 		graniteMine = new Mine ("graniteMine", graniteMineCost);
 		metalMine = new Mine ("metalMine", metalMineCost);
@@ -175,14 +267,17 @@ public class BuyMine : MonoBehaviour
 		minerCostList.Add (obsidianMinerCost);
 		minerCostList.Add (goldMinerCost);
 
-		minerUpgrade = new MinersUpgrade (minerCostList);
+		minerUpgrade = new MinerUpgrade (minerTextList, researchTextList, minerCostList);
 
-		GameObject temp = GameObject.Find ("stone");
-		if (temp != null) {
+		temp = GameObject.Find ("stone");
+		if (temp != null) 
+		{
 			spriteRenderer = temp.GetComponent<SpriteRenderer> ();
 			setStoneSprite (0);
 			Debug.Log ("spriteRenderer is initialized");
-		} else {
+		} 
+		else 
+		{
 			Debug.Log ("Could not find stone in Scene");
 		}
 	}

@@ -216,7 +216,6 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 884514330}
-  - {fileID: 1705417924}
   m_Father: {fileID: 1094207787}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -950,7 +949,7 @@ GameObject:
   - component: {fileID: 527327379}
   - component: {fileID: 527327378}
   m_Layer: 5
-  m_Name: tMinerUpgrade
+  m_Name: tResearchUpgradeCost
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1779,6 +1778,7 @@ RectTransform:
   m_Children:
   - {fileID: 111759471}
   - {fileID: 1378329151}
+  - {fileID: 2109012140}
   m_Father: {fileID: 61798126}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2694,7 +2694,7 @@ GameObject:
   - component: {fileID: 1666152894}
   - component: {fileID: 1666152893}
   m_Layer: 5
-  m_Name: tMinerLevel
+  m_Name: tResearchLevel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2769,7 +2769,7 @@ GameObject:
   - component: {fileID: 1705417926}
   - component: {fileID: 1705417925}
   m_Layer: 5
-  m_Name: btnUpgradeMiner
+  m_Name: btnResearchUpgrade
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2787,12 +2787,12 @@ RectTransform:
   m_Children:
   - {fileID: 527327377}
   - {fileID: 1666152892}
-  m_Father: {fileID: 61798126}
-  m_RootOrder: 1
+  m_Father: {fileID: 2109012140}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -150, y: -602}
+  m_AnchoredPosition: {x: 234.70001, y: 0}
   m_SizeDelta: {x: 209, y: 184}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1705417925
@@ -2918,6 +2918,18 @@ MonoBehaviour:
   metalMinerCost: 0
   obsidianMinerCost: 0
   goldMinerCost: 0
+  mineTextList:
+  - {fileID: 568672104}
+  - {fileID: 43380797}
+  - {fileID: 1819335808}
+  - {fileID: 1727367843}
+  - {fileID: 1897270631}
+  minerTextList:
+  - {fileID: 111759472}
+  - {fileID: 1378329152}
+  researchTextList:
+  - {fileID: 527327378}
+  - {fileID: 1666152893}
   stoneSprites:
   - {fileID: 21300000, guid: e6f58219c22b8b540944c6d8420b1328, type: 3}
   - {fileID: 21300000, guid: ae87660657989de4c90a13769ea35a2b, type: 3}
@@ -3293,6 +3305,100 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2109012139
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 2109012140}
+  - component: {fileID: 2109012143}
+  - component: {fileID: 2109012142}
+  - component: {fileID: 2109012141}
+  m_Layer: 5
+  m_Name: ResearchCanvas
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &2109012140
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2109012139}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 1705417924}
+  m_Father: {fileID: 884514330}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &2109012141
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2109012139}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1301386320, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_IgnoreReversedGraphics: 1
+  m_BlockingObjects: 0
+  m_BlockingMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+--- !u!114 &2109012142
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2109012139}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1980459831, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_UiScaleMode: 0
+  m_ReferencePixelsPerUnit: 100
+  m_ScaleFactor: 1
+  m_ReferenceResolution: {x: 800, y: 600}
+  m_ScreenMatchMode: 0
+  m_MatchWidthOrHeight: 0
+  m_PhysicalUnit: 3
+  m_FallbackScreenDPI: 96
+  m_DefaultSpriteDPI: 96
+  m_DynamicPixelsPerUnit: 1
+--- !u!223 &2109012143
+Canvas:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2109012139}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_RenderMode: 0
+  m_Camera: {fileID: 0}
+  m_PlaneDistance: 100
+  m_PixelPerfect: 0
+  m_ReceivesEvents: 1
+  m_OverrideSorting: 0
+  m_OverridePixelPerfect: 0
+  m_SortingBucketNormalizedSize: 0
+  m_AdditionalShaderChannelsFlag: 0
+  m_SortingLayerID: 0
+  m_SortingOrder: 0
+  m_TargetDisplay: 0
 --- !u!1 &2116448683
 GameObject:
   m_ObjectHideFlags: 0
