@@ -4,10 +4,11 @@ using UnityEngine;
 using UnityEngine.UI;
 
 //Handles 
-public class ClickButton: MonoBehaviour
-{
-    public void IncreaseCurrency()
-    {
-        GlobalClicks.currencyCount++;
-    }
-}
+//public class ClickButton: MonoBehaviour
+//{
+//    public void IncreaseCurrency()
+//    {
+        
+//        GlobalClicks.currencyCount++;
+//    }
+//}
