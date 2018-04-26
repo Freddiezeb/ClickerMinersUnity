@@ -105,7 +105,16 @@ public class BuyMine : MonoBehaviour
 	{
 		//TODO
 		//Handle the logic of what happens when you press the upgrade miner button 
+		for (int i = 0; i < mineList.Count; i++) 
+		{
+			if (mineList [i].Active) 
+			{
+				minerUpgrade.ResearchUpgrade (minerUpgrade.minerList[i]);
+				return;
+			}
+		}
 	}
+
 
 	/// <summary>
 	/// The payment method for the mine.
@@ -169,12 +178,14 @@ public class BuyMine : MonoBehaviour
 			minerUpgrade.ShowResearchCanvas (true);
 			minerTextList[0].text = "";
 			minerTextList[1].text = "Owned";
+			minerUpgrade.SetResearchText (minerUpgrade.minerList [index]);
 		} 
 		else if (!minerUpgrade.minerList [index].Unlocked) 
 		{
 			minerUpgrade.ShowResearchCanvas (false);
 			minerTextList[0].text = "$ " + minerUpgrade.minerList[index].Cost;
 			minerTextList[1].text = "";
+			minerUpgrade.SetResearchText (minerUpgrade.minerList [index]);
 		}
 	}
 

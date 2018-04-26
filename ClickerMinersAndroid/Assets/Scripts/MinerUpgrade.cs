@@ -107,11 +107,31 @@ public class MinerUpgrade {
 			minerTextList[0].text = "";
 			minerTextList[1].text = "Owned";
 			ShowCanvas (researchCanvas, true);
+			SetResearchText (miner);
 		}
 	}
 
-//TODO!
-	//försöka göra uppdateringen generic för alla miners
+	public void ResearchUpgrade(Miner miner)
+	{
+		if (GlobalClicks.currencyCount >= miner.ResearchCost) 
+		{
+			GlobalClicks.currencyCount -= miner.ResearchCost;
+			miner.ResearchLevel++;
+			SetResearchText (miner);
+			IncreaseResearchCost (miner.ResearchCost);
+		}
+	}
+
+	void IncreaseResearchCost(int currentCost)
+	{
+		//Calculate the new price
+	}
+
+	public void SetResearchText(Miner miner)
+	{
+		researchTextList[0].text = "$" + miner.ResearchCost.ToString();
+		researchTextList[1].text = miner.ResearchLevel.ToString();
+	}
 }
 
 public class Miner
@@ -120,6 +140,7 @@ public class Miner
 	int cost;
 	bool unlocked = false;
 	int researchLevel;
+	int researchCost;
 
 	public string Name { get { return name; } set { name = value; } }
 
@@ -128,6 +149,8 @@ public class Miner
 	public bool Unlocked { get { return unlocked; } set { unlocked = value; } }
 
 	public int ResearchLevel { get { return researchLevel; } set { researchLevel = value; } }
+
+	public int ResearchCost { get { return researchCost; } set { researchCost = value; } }
 
 	/// <summary>
 	/// Initializes a new instance of the <see cref="Miner"/> class.
