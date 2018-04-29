@@ -6,12 +6,18 @@ using UnityEngine.UI;
 
 public class PickaxeUpgrade : MonoBehaviour
 {
-    public float baseCost;
+    public int baseCost;
+    public int pickaxeLevel;
     public float upgradeCost;
-    private float upgradeMultiplier;
-    public float pickaxeLevel;
+    public float incomeMultiplier;
+    public float upgradeMultiplier;
+
     public Text levelDisplay;
     public Text costDisplay;
+
+    public static float activeMineBonus = 0;
+
+    TextFader textFader;
 
 	void Awake()
 	{
@@ -21,8 +27,16 @@ public class PickaxeUpgrade : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        upgradeMultiplier = 1.07f;
-        //pickaxeLevel = globalStats.pickaxeLevel;
+        GameObject temp = GameObject.Find("ClickMechanic");
+        if (temp != null)
+        {
+            textFader = temp.GetComponent<TextFader>();
+            Debug.Log("TextFader is initialized");
+        }
+        else
+        {
+            Debug.Log("Could not find TextFader in Scene");
+        }
         if (pickaxeLevel > 1)
         {
             for (int i = 1; i < pickaxeLevel; i++)
@@ -34,8 +48,15 @@ public class PickaxeUpgrade : MonoBehaviour
 
     public void IncreaseCurrency()
     {
-        //GlobalClicks.currencyCount += (int)Math.Pow(pickaxeLevel, pickaxeLevel);
-        GlobalClicks.currencyCount += (1 * (float)Math.Pow(1.5, pickaxeLevel - 1.0f));
+        GlobalClicks.currencyCount += CalculateIncreasedCurrency(incomeMultiplier, pickaxeLevel, activeMineBonus);
+    }
+
+    private float CalculateIncreasedCurrency(float multiplier, int level, float mineBonus)
+    {
+        float temp = 0f;
+        temp += (float)(1 * (float)Math.Pow(multiplier, level - 1.0f));
+        temp = temp * (1f + mineBonus);
+        return temp;
     }
 
     public void UpgradePickaxe()
@@ -48,11 +69,14 @@ public class PickaxeUpgrade : MonoBehaviour
             UpgradeCostIncrease();
 			costDisplay.text = "$" + upgradeCost.ToString();
         }
+        else
+        {
+            textFader.DisplayText(GlobalItems.displayTimes[1], GlobalItems.displayTexts[0]);
+        }
     }
 
     private void UpgradeCostIncrease()
     {
-        //upgradeCost += (pickaxeLevel * upgradeMultiplier);
-        upgradeCost += (baseCost * (float)Math.Pow(upgradeMultiplier, pickaxeLevel - 1.0f));
+        upgradeCost += GlobalItems.CalculateNewPrice(baseCost, upgradeMultiplier, pickaxeLevel);
     }
 }
