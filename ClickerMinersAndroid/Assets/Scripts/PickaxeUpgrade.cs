@@ -34,7 +34,8 @@ public class PickaxeUpgrade : MonoBehaviour
 
     public void IncreaseCurrency()
     {
-        GlobalClicks.currencyCount += (int)Math.Pow(pickaxeLevel, pickaxeLevel);
+        //GlobalClicks.currencyCount += (int)Math.Pow(pickaxeLevel, pickaxeLevel);
+        GlobalClicks.currencyCount += (1 * (float)Math.Pow(1.5, pickaxeLevel - 1.0f));
     }
 
     public void UpgradePickaxe()
