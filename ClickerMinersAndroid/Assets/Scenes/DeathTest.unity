@@ -1471,7 +1471,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 
+  m_Text: $
 --- !u!222 &1066273048
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2448,8 +2448,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7be8273befcd6274eb75a0152b6085bb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  baseCost: 50
   upgradeCost: 50
-  upgradeMultiplier: 50
   pickaxeLevel: 1
   levelDisplay: {fileID: 2026301622}
   costDisplay: {fileID: 1066273047}

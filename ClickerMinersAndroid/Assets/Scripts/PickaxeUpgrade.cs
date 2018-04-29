@@ -6,10 +6,10 @@ using UnityEngine.UI;
 
 public class PickaxeUpgrade : MonoBehaviour
 {
-
-    public int upgradeCost;
-    public int upgradeMultiplier;
-    public int pickaxeLevel;
+    public float baseCost;
+    public float upgradeCost;
+    private float upgradeMultiplier;
+    public float pickaxeLevel;
     public Text levelDisplay;
     public Text costDisplay;
 
@@ -21,6 +21,7 @@ public class PickaxeUpgrade : MonoBehaviour
     // Use this for initialization
     void Start()
     {
+        upgradeMultiplier = 1.07f;
         //pickaxeLevel = globalStats.pickaxeLevel;
         if (pickaxeLevel > 1)
         {
@@ -50,6 +51,7 @@ public class PickaxeUpgrade : MonoBehaviour
 
     private void UpgradeCostIncrease()
     {
-        upgradeCost += (pickaxeLevel * upgradeMultiplier);
+        //upgradeCost += (pickaxeLevel * upgradeMultiplier);
+        upgradeCost += (baseCost * (float)Math.Pow(upgradeMultiplier, pickaxeLevel - 1.0f));
     }
 }

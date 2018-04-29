@@ -31,5 +31,6 @@ public class GlobalClicks : MonoBehaviour
 	void CalculateCurrentPrice(int startPrice, int level, float increase)
 	{
 		//equation   n..
+        
 	}
 }
