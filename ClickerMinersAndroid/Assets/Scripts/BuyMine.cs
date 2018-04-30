@@ -35,7 +35,11 @@ public class BuyMine : MonoBehaviour
 
 	Image stoneImage; //the image of the stones
 
+	Image stoneBkImage;
+
 	public Sprite[] stoneSprites;
+
+	public Sprite[] stoneBkSprites;
 
     TextFader textFader;
 
@@ -213,6 +217,16 @@ public class BuyMine : MonoBehaviour
 		stoneImage.sprite = stoneSprites [spriteIndex];
 	}
 
+
+	/// <summary>
+	/// Sets the stone sprite.
+	/// </summary>
+	/// <param name="spriteIndex">Sprite index.</param>
+	void setStoneBkSprite (int spriteIndex) 
+	{
+		stoneBkImage.sprite = stoneBkSprites [spriteIndex];
+	}
+
 	/// <summary>
 	/// Initialize resources.
 	/// </summary>
@@ -267,6 +281,18 @@ public class BuyMine : MonoBehaviour
 		else 
 		{
 			Debug.Log ("Could not find stone in Scene");
+		}
+
+		temp = GameObject.Find ("iStones");
+		if (temp != null) 
+		{
+			stoneBkImage = temp.GetComponent<Image>();
+			setStoneBkSprite (0);
+			Debug.Log ("iStones is initialized");
+		} 
+		else 
+		{
+			Debug.Log ("Could not find iStones in Scene");
 		}
 
         temp = GameObject.Find("ClickMechanic");
