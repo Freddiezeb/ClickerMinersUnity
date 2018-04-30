@@ -819,6 +819,10 @@ MonoBehaviour:
   - {fileID: 21300000, guid: f452980077850794ba892e8fd093069e, type: 3}
   stoneBkSprites:
   - {fileID: 21300000, guid: 2e488954088abd446b2e700eaf84517d, type: 3}
+  - {fileID: 21300000, guid: 8223e4fea8ba498439bdee1da8a87f7f, type: 3}
+  - {fileID: 21300000, guid: 2e488954088abd446b2e700eaf84517d, type: 3}
+  - {fileID: 21300000, guid: 2e488954088abd446b2e700eaf84517d, type: 3}
+  - {fileID: 21300000, guid: 2e488954088abd446b2e700eaf84517d, type: 3}
 --- !u!4 &568457512
 Transform:
   m_ObjectHideFlags: 0

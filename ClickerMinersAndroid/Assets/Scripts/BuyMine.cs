@@ -134,6 +134,7 @@ public class BuyMine : MonoBehaviour
 			HandelResearchCanvas (mine);
 			minerUpgrade.ShowMinerCanvas (true);
 			setStoneSprite (spriteIndex);
+			setStoneBkSprite (spriteIndex);
 		}
 		else
 		{
@@ -160,6 +161,7 @@ public class BuyMine : MonoBehaviour
                 PickaxeUpgrade.activeMineBonus = 0f;
 				minerUpgrade.ShowMinerCanvas (false);
 				setStoneSprite (0);
+				setStoneBkSprite (0);
 			} 
 			else 
 			{
@@ -168,6 +170,7 @@ public class BuyMine : MonoBehaviour
 				HandelResearchCanvas (mine);
 				minerUpgrade.ShowMinerCanvas (true);
 				setStoneSprite (spriteIndex);
+				setStoneBkSprite (spriteIndex);
 			}
 		}
 		Debug.Log (mine.Name + " Active: " + mine.Active.ToString ());
