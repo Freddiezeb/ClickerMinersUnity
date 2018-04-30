@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/Scenes/DeathTest.unity
+- path: Assets/Scenes/ClickerPage.unity
   isLoaded: 1
   isActive: 1

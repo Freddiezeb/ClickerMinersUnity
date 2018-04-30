@@ -19,6 +19,8 @@ public class PickaxeUpgrade : MonoBehaviour
 
     TextFader textFader;
 
+    public ParticleSystem sparkParticle;
+
 	void Awake()
 	{
 		costDisplay.text = "$" + upgradeCost.ToString();
@@ -48,6 +50,7 @@ public class PickaxeUpgrade : MonoBehaviour
 
     public void IncreaseCurrency()
     {
+        sparkParticle.Play();
         GlobalClicks.currencyCount += CalculateIncreasedCurrency(incomeMultiplier, pickaxeLevel, activeMineBonus);
     }
 
