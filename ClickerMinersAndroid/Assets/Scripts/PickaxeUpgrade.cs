@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class PickaxeUpgrade : MonoBehaviour
 {
-    public int baseCost;
+    public float baseCost;
     public int pickaxeLevel;
     public float upgradeCost;
     public float incomeMultiplier;

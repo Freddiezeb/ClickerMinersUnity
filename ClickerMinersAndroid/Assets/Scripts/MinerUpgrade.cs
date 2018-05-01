@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-//TODO - Change all costs to floats
-public class MinerUpgrade {
+public class MinerUpgrade : MonoBehaviour
+{
 	Canvas minerCanvas;
 
 	public Miner gravelMiner;
@@ -13,26 +13,23 @@ public class MinerUpgrade {
 	public Miner obsidianMiner;
 	public Miner goldMiner;
 
-    int[] researchCosts;
+	public float[] researchCosts;
+	public float[] minerCost;
 
-	List<Text> minerTextList;
-	List<Text> researchTextList;
+	public List<Text> minerTextList;
+	public List<Text> researchTextList;
 	public List<Miner> minerList;
 
 	Canvas researchCanvas;
 
     TextFader textFader;
 
+	public Button btnBuyMiner;
+	public Button btnResearchUpgrade;
 
-	/// <summary>
-	/// Initializes a new instance of the <see cref="MinersUpgrade"/> class.
-	/// </summary>
-	public MinerUpgrade (List<Text> minerTextList, List<Text> researchTextList, int[] minerCost, int[] researchCosts) 
+	void Awake ()
 	{
-		this.minerTextList = minerTextList;
-		this.researchTextList = researchTextList;
-        this.researchCosts = researchCosts;
-		Initialize (minerCost);
+		Initialize ();
 	}
 
 	/// <summary>
@@ -65,33 +62,9 @@ public class MinerUpgrade {
 	/// Initialize resources.
 	/// </summary>
 	/// <param name="minerCostList">Miner cost list.</param>
-	void Initialize(int[] minerCost)
+	void Initialize()
 	{
-		GameObject temp = GameObject.Find ("ResearchCanvas");
-		if (temp != null) 
-		{
-			researchCanvas = temp.GetComponent<Canvas> ();
-			researchCanvas.gameObject.SetActive (false);
-			Debug.Log ("ResearchCanvas is initialized");
-		} 
-		else 
-		{
-			Debug.Log ("Could not find ResearchCanvas in Scene");
-		}
-
-		temp = GameObject.Find ("MinerCanvas");
-		if (temp != null) 
-		{
-			minerCanvas = temp.GetComponent<Canvas> ();
-			minerCanvas.gameObject.SetActive (false);
-			Debug.Log ("MinerCanvas is initialized");
-		} 
-		else 
-		{
-			Debug.Log ("Could not find MinerCanvas in Scene");
-		}
-
-        temp = GameObject.Find("ClickMechanic");
+        GameObject temp = GameObject.Find("ClickMechanic");
         if (temp != null)
         {
             textFader = temp.GetComponent<TextFader>();
@@ -114,6 +87,30 @@ public class MinerUpgrade {
 		minerList.Add (metalMiner);
 		minerList.Add (obsidianMiner);
 		minerList.Add (goldMiner);
+
+		temp = GameObject.Find ("ResearchCanvas");
+		if (temp != null) 
+		{
+			researchCanvas = temp.GetComponent<Canvas> ();
+			researchCanvas.gameObject.SetActive (false);
+			Debug.Log ("ResearchCanvas is initialized");
+		} 
+		else 
+		{
+			Debug.Log ("Could not find ResearchCanvas in Scene");
+		}
+
+		temp = GameObject.Find ("MinerCanvas");
+		if (temp != null) 
+		{
+			minerCanvas = temp.GetComponent<Canvas> ();
+			minerCanvas.gameObject.SetActive (false);
+			Debug.Log ("MinerCanvas is initialized");
+		} 
+		else 
+		{
+			Debug.Log ("Could not find MinerCanvas in Scene");
+		}
 	}
 
 	public void MinerPayment(Miner miner)
@@ -151,7 +148,7 @@ public class MinerUpgrade {
 	void IncreaseResearchCost(Miner miner)
 	{
 		//Calculate the new price
-        miner.ResearchCost += (int)GlobalItems.CalculateNewPrice(miner.ResearchStartCost, 1.15f, miner.ResearchLevel);
+        miner.ResearchCost += GlobalItems.CalculateNewPrice(miner.ResearchStartCost, 1.15f, miner.ResearchLevel);
 	}
 
 	public void SetResearchText(Miner miner)
@@ -164,35 +161,35 @@ public class MinerUpgrade {
 public class Miner
 {
 	string name;
-	int cost;
+	float cost;
 	bool unlocked = false;
 	int researchLevel;
-	int researchCost;
-    int researchStartCost;
+	float researchCost;
+	float researchStartCost;
 
 	public string Name { get { return name; } set { name = value; } }
 
-	public int Cost { get { return cost; } set { cost = value; } }
+	public float Cost { get { return cost; } set { cost = value; } }
 
 	public bool Unlocked { get { return unlocked; } set { unlocked = value; } }
 
 	public int ResearchLevel { get { return researchLevel; } set { researchLevel = value; } }
 
-	public int ResearchCost { get { return researchCost; } set { researchCost = value; } }
+	public float ResearchCost { get { return researchCost; } set { researchCost = value; } }
 
-    public int ResearchStartCost { get { return researchStartCost; } }
+	public float ResearchStartCost { get { return researchStartCost; } }
 
 	/// <summary>
 	/// Initializes a new instance of the <see cref="Miner"/> class.
 	/// </summary>
 	/// <param name="name">Name.</param>
 	/// <param name="cost">Cost.</param>
-	public Miner(string name, int cost, int researchCost)
+	public Miner(string name, float cost, float researchCost)
 	{
 		this.name = name;
 		this.cost = cost;
         this.researchCost = researchCost;
         researchStartCost = researchCost;
-		researchLevel = 0;
+		researchLevel = 1;
 	}
 }

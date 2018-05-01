@@ -18,9 +18,9 @@ public static class GlobalItems {
             "THIS IS A COOL FEATURE",
             "WELCOME TO OUR COOL GAME"
         };
-
-    public static float CalculateNewPrice(int baseCost, float multiplier, int level)
-    {
-        return (float)(baseCost * (float)Math.Pow(multiplier, level - 1.0f));
-    }
+		
+	public static float CalculateNewPrice(float baseCost, float multiplier, int level)
+	{
+		return (float)(baseCost * (float)Math.Pow(multiplier, level - 1.0f));
+	}
 }
