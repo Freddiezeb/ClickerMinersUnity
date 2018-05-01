@@ -243,7 +243,7 @@ PlayerSettings:
   AndroidTargetDevice: 0
   AndroidSplashScreenScale: 0
   androidSplashScreen: {fileID: 0}
-  AndroidKeystoreName: C:/Users/Freddie/Documents/GitHub/ClickerMiners/ClickerMinersAndroid/clickerminers.keystore
+  AndroidKeystoreName: C:/Users/Freddie/Documents/GitHub/ClickerMinersUnity/ClickerMinersAndroid/clickerminers.keystore
   AndroidKeyaliasName: clickerminers
   AndroidTVCompatibility: 1
   AndroidIsGame: 1

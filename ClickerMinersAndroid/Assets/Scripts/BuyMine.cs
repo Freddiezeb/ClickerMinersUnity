@@ -112,7 +112,7 @@ public class BuyMine : MonoBehaviour
             PickaxeUpgrade.activeMineBonus = mine.MineBonus;
 			mine.Unlocked = true;
 			int index = mineList.FindIndex (i => i.Name == mine.Name);
-			mineTextList[index].text = "Owned";
+			mineTextList[index].text = mine.Name;
 			mine.Active = true;
 			HandelResearchCanvas (mine);
 			minerUpgrade.ShowMinerCanvas (true);
@@ -218,11 +218,11 @@ public class BuyMine : MonoBehaviour
 	/// </summary>
 	void Initialize()
 	{
-		gravelMine = new Mine ("gravelMine", mineCost[0], mineBonus[0]);
-        graniteMine = new Mine("graniteMine", mineCost[1], mineBonus[1]);
-        metalMine = new Mine("metalMine", mineCost[2], mineBonus[2]);
-        obsidianMine = new Mine("obsidianMine", mineCost[3], mineBonus[3]);
-        goldMine = new Mine("goldMine", mineCost[4], mineBonus[4]);
+		gravelMine = new Mine ("Gravel", mineCost[0], mineBonus[0]);
+        graniteMine = new Mine("Granite", mineCost[1], mineBonus[1]);
+        metalMine = new Mine("Metal", mineCost[2], mineBonus[2]);
+        obsidianMine = new Mine("Obsidian", mineCost[3], mineBonus[3]);
+        goldMine = new Mine("Gold", mineCost[4], mineBonus[4]);
 
 		mineList = new List<Mine>();
 		mineList.Add (gravelMine);

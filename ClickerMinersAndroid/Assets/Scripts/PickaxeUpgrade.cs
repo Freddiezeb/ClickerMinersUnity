@@ -21,10 +21,10 @@ public class PickaxeUpgrade : MonoBehaviour
 
     public ParticleSystem sparkParticle;
 
-	void Awake()
-	{
-		costDisplay.text = "$" + upgradeCost.ToString();
-	}
+    void Awake()
+    {
+        costDisplay.text = "$" + upgradeCost.ToString();
+    }
 
     // Use this for initialization
     void Start()
@@ -48,10 +48,10 @@ public class PickaxeUpgrade : MonoBehaviour
         }
     }
 
-    public void IncreaseCurrency()
+    public void IncreaseCurrency(int skillMultiplier)
     {
+        GlobalClicks.currencyCount += (CalculateIncreasedCurrency(incomeMultiplier, pickaxeLevel, activeMineBonus)) * skillMultiplier;
         sparkParticle.Play();
-        GlobalClicks.currencyCount += CalculateIncreasedCurrency(incomeMultiplier, pickaxeLevel, activeMineBonus);
     }
 
     private float CalculateIncreasedCurrency(float multiplier, int level, float mineBonus)
@@ -70,7 +70,7 @@ public class PickaxeUpgrade : MonoBehaviour
             levelDisplay.text = pickaxeLevel.ToString();
             GlobalClicks.currencyCount -= upgradeCost;
             UpgradeCostIncrease();
-			costDisplay.text = "$" + upgradeCost.ToString();
+            costDisplay.text = "$" + upgradeCost.ToString();
         }
         else
         {
