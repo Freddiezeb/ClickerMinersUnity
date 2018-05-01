@@ -413,6 +413,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 206329274}
+  - component: {fileID: 206329275}
   - component: {fileID: 206329273}
   m_Layer: 0
   m_Name: MineObjects
@@ -432,27 +433,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a2acdb7a175cb0f488b8d5535bce4504, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mineCost: 0a00000064000000f4010000e8030000d0070000
-  minerCost: 6400000064000000640000006400000064000000
+  mineCost:
+  - 10
+  - 100
+  - 500
+  - 1000
+  - 2000
   mineBonus:
   - 5
   - 0.25
   - 0.25
   - 0.3
   - 0.35
-  researchCosts: 64000000e80300008813000010270000204e0000
   mineTextList:
   - {fileID: 1645360363}
   - {fileID: 414054705}
   - {fileID: 418215540}
   - {fileID: 214087704}
   - {fileID: 589416652}
-  minerTextList:
-  - {fileID: 393696863}
-  - {fileID: 1696090974}
-  researchTextList:
-  - {fileID: 483149262}
-  - {fileID: 635515059}
   stoneSprites:
   - {fileID: 21300000, guid: e6f58219c22b8b540944c6d8420b1328, type: 3}
   - {fileID: 21300000, guid: ae87660657989de4c90a13769ea35a2b, type: 3}
@@ -476,6 +474,37 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &206329275
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 206329272}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7c9bf84d065e36e4fa9745092aac01a4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  researchCosts:
+  - 100
+  - 1000
+  - 5000
+  - 10000
+  - 20000
+  minerCost:
+  - 100
+  - 100
+  - 100
+  - 100
+  - 100
+  minerTextList:
+  - {fileID: 393696863}
+  - {fileID: 1696090974}
+  researchTextList:
+  - {fileID: 483149262}
+  - {fileID: 635515059}
+  btnBuyMiner: {fileID: 458481921}
+  btnResearchUpgrade: {fileID: 832841146}
 --- !u!1 &214087701
 GameObject:
   m_ObjectHideFlags: 0
