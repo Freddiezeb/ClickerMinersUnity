@@ -586,6 +586,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 2e488954088abd446b2e700eaf84517d, type: 3}
   - {fileID: 21300000, guid: 2e488954088abd446b2e700eaf84517d, type: 3}
   - {fileID: 21300000, guid: 2e488954088abd446b2e700eaf84517d, type: 3}
+  - {fileID: 21300000, guid: 2e488954088abd446b2e700eaf84517d, type: 3}
 --- !u!4 &206329274
 Transform:
   m_ObjectHideFlags: 0
@@ -1731,7 +1732,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: cc53b21453de68840855af67fd4fbeba, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 1e896f7ac389de94b9426648fd34a6ee, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -2386,7 +2387,7 @@ MonoBehaviour:
   swapButtonImage: {fileID: 1341915263}
   swapButtonText: {fileID: 2005255125}
   sprites:
-  - {fileID: 21300000, guid: b683acede33b3294d8309a9dbc1df014, type: 3}
+  - {fileID: 21300000, guid: af6bed23ec71b3e40829e33290a6be23, type: 3}
   - {fileID: 21300000, guid: f7b26e9acdbe6d346ab9f245654a76de, type: 3}
   minerCanvas: {fileID: 1741218377}
 --- !u!114 &905211762
