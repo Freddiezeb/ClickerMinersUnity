@@ -218,11 +218,11 @@ public class BuyMine : MonoBehaviour
 	/// </summary>
 	void Initialize()
 	{
-		gravelMine = new Mine ("Gravel", mineCost[0], mineBonus[0]);
-        graniteMine = new Mine("Granite", mineCost[1], mineBonus[1]);
-        metalMine = new Mine("Metal", mineCost[2], mineBonus[2]);
-        obsidianMine = new Mine("Obsidian", mineCost[3], mineBonus[3]);
-        goldMine = new Mine("Gold", mineCost[4], mineBonus[4]);
+		gravelMine = new Mine ("GRAVEL", mineCost[0], mineBonus[0]);
+        graniteMine = new Mine("GRANITE", mineCost[1], mineBonus[1]);
+        metalMine = new Mine("METAL", mineCost[2], mineBonus[2]);
+        obsidianMine = new Mine("OBSIDIAN", mineCost[3], mineBonus[3]);
+        goldMine = new Mine("GOLD", mineCost[4], mineBonus[4]);
 
 		mineList = new List<Mine>();
 		mineList.Add (gravelMine);
