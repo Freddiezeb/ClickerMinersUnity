@@ -694,7 +694,7 @@ MonoBehaviour:
   m_FontData:
     m_Font: {fileID: 12800000, guid: b563d8f74fe64b640bef7bfad8d61acf, type: 3}
     m_FontSize: 33
-    m_FontStyle: 1
+    m_FontStyle: 0
     m_BestFit: 1
     m_MinSize: 0
     m_MaxSize: 165
@@ -1106,7 +1106,7 @@ MonoBehaviour:
   m_FontData:
     m_Font: {fileID: 12800000, guid: b563d8f74fe64b640bef7bfad8d61acf, type: 3}
     m_FontSize: 33
-    m_FontStyle: 1
+    m_FontStyle: 0
     m_BestFit: 1
     m_MinSize: 0
     m_MaxSize: 165
@@ -1180,7 +1180,7 @@ MonoBehaviour:
   m_FontData:
     m_Font: {fileID: 12800000, guid: b563d8f74fe64b640bef7bfad8d61acf, type: 3}
     m_FontSize: 33
-    m_FontStyle: 1
+    m_FontStyle: 0
     m_BestFit: 1
     m_MinSize: 0
     m_MaxSize: 165
@@ -1574,7 +1574,7 @@ MonoBehaviour:
   m_FontData:
     m_Font: {fileID: 12800000, guid: b563d8f74fe64b640bef7bfad8d61acf, type: 3}
     m_FontSize: 33
-    m_FontStyle: 1
+    m_FontStyle: 0
     m_BestFit: 1
     m_MinSize: 0
     m_MaxSize: 165
@@ -1757,7 +1757,7 @@ GameObject:
   - component: {fileID: 625856852}
   - component: {fileID: 625856851}
   m_Layer: 5
-  m_Name: tMetal
+  m_Name: tSkill3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1801,9 +1801,9 @@ MonoBehaviour:
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_Font: {fileID: 12800000, guid: b563d8f74fe64b640bef7bfad8d61acf, type: 3}
     m_FontSize: 35
-    m_FontStyle: 1
+    m_FontStyle: 0
     m_BestFit: 1
     m_MinSize: 10
     m_MaxSize: 165
@@ -1813,7 +1813,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: $500
+  m_Text: SKILL 3
 --- !u!222 &625856852
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2131,10 +2131,10 @@ MonoBehaviour:
   m_Type: 3
   m_PreserveAspect: 0
   m_FillCenter: 1
-  m_FillMethod: 0
+  m_FillMethod: 4
   m_FillAmount: 0
   m_FillClockwise: 0
-  m_FillOrigin: 0
+  m_FillOrigin: 2
 --- !u!222 &898510620
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2879,7 +2879,7 @@ GameObject:
   - component: {fileID: 1089144287}
   - component: {fileID: 1089144286}
   m_Layer: 5
-  m_Name: tRuby
+  m_Name: tRSkill6
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2923,9 +2923,9 @@ MonoBehaviour:
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_Font: {fileID: 12800000, guid: b563d8f74fe64b640bef7bfad8d61acf, type: 3}
     m_FontSize: 35
-    m_FontStyle: 1
+    m_FontStyle: 0
     m_BestFit: 1
     m_MinSize: 10
     m_MaxSize: 165
@@ -2935,7 +2935,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: $5000
+  m_Text: SKILL 6
 --- !u!222 &1089144287
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3127,7 +3127,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1175448180
 RectTransform:
   m_ObjectHideFlags: 0
@@ -6846,9 +6846,9 @@ MonoBehaviour:
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_Font: {fileID: 12800000, guid: b563d8f74fe64b640bef7bfad8d61acf, type: 3}
     m_FontSize: 35
-    m_FontStyle: 1
+    m_FontStyle: 0
     m_BestFit: 1
     m_MinSize: 10
     m_MaxSize: 165
@@ -6858,7 +6858,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 4x Currency
+  m_Text: 4x CURRENCY
 --- !u!222 &1311419046
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -7186,7 +7186,7 @@ GameObject:
   - component: {fileID: 1419460262}
   - component: {fileID: 1419460261}
   m_Layer: 5
-  m_Name: tGranite
+  m_Name: tSkill2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7230,9 +7230,9 @@ MonoBehaviour:
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_Font: {fileID: 12800000, guid: b563d8f74fe64b640bef7bfad8d61acf, type: 3}
     m_FontSize: 35
-    m_FontStyle: 1
+    m_FontStyle: 0
     m_BestFit: 1
     m_MinSize: 10
     m_MaxSize: 165
@@ -7242,7 +7242,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 4x CURRENCY
+  m_Text: SKILL 2
 --- !u!222 &1419460262
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -7525,7 +7525,7 @@ GameObject:
   - component: {fileID: 1571509761}
   - component: {fileID: 1571509760}
   m_Layer: 5
-  m_Name: tGold
+  m_Name: tSkill5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7569,9 +7569,9 @@ MonoBehaviour:
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_Font: {fileID: 12800000, guid: b563d8f74fe64b640bef7bfad8d61acf, type: 3}
     m_FontSize: 35
-    m_FontStyle: 1
+    m_FontStyle: 0
     m_BestFit: 1
     m_MinSize: 10
     m_MaxSize: 165
@@ -7581,7 +7581,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: $2000
+  m_Text: SKILL 5
 --- !u!222 &1571509761
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -7807,7 +7807,7 @@ MonoBehaviour:
   m_FontData:
     m_Font: {fileID: 12800000, guid: b563d8f74fe64b640bef7bfad8d61acf, type: 3}
     m_FontSize: 33
-    m_FontStyle: 1
+    m_FontStyle: 0
     m_BestFit: 1
     m_MinSize: 0
     m_MaxSize: 165
@@ -7829,7 +7829,7 @@ GameObject:
   - component: {fileID: 1676491838}
   - component: {fileID: 1676491837}
   m_Layer: 5
-  m_Name: tObsidian
+  m_Name: tSkill4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7873,9 +7873,9 @@ MonoBehaviour:
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_Font: {fileID: 12800000, guid: b563d8f74fe64b640bef7bfad8d61acf, type: 3}
     m_FontSize: 35
-    m_FontStyle: 1
+    m_FontStyle: 0
     m_BestFit: 1
     m_MinSize: 10
     m_MaxSize: 165
@@ -7885,7 +7885,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: $1000
+  m_Text: SKILL 4
 --- !u!222 &1676491838
 CanvasRenderer:
   m_ObjectHideFlags: 0
