@@ -1,0 +1,23 @@
+fileFormatVersion: 2
+guid: faf3d05627890e4498a6b78d3317d3c4
+timeCreated: 1525275342
+licenseType: Free
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Litchis Island_PersonalUseOnly
+  fontNames:
+  - Litchis Island_PersonalUseOnly
+  fallbackFontReferences: []
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

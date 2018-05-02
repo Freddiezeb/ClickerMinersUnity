@@ -1,0 +1,24 @@
+fileFormatVersion: 2
+guid: b563d8f74fe64b640bef7bfad8d61acf
+timeCreated: 1525273801
+licenseType: Free
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Springtime in April
+  fontNames:
+  - Springtime in April
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 8b2bd21e970795a4598c72ed44875746, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
