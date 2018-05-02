@@ -53,7 +53,7 @@ public class BuyMine : MonoBehaviour
 
     void BuyObsidianMine()
     {
-		HandleMine(obsidianMine, 0);
+		HandleMine(obsidianMine, 4);
     }
 
     void BuyGoldMine()
