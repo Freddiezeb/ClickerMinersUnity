@@ -58,7 +58,7 @@ public class BuyMine : MonoBehaviour
 
     void BuyGoldMine()
     {
-		HandleMine(goldMine, 0);
+		HandleMine(goldMine, 5);
     }
 
 	/// <summary>
