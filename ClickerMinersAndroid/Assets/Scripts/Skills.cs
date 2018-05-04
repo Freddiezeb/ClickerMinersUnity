@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -9,9 +10,11 @@ public class Skills : MonoBehaviour {
     public Image[] cooldownImages;
     public int baseMultiplier;
     public int skillMultiplier;
+    public float stepDivider;
     bool skillOneActive = false;
 
     private int multiplier;
+    private int stepBonus = 0;
 
     public PickaxeUpgrade pickaxe;
 
@@ -26,9 +29,16 @@ public class Skills : MonoBehaviour {
         pickaxe.IncreaseCurrency(multiplier);
     }
 
+    public void CalculateStepBonus()
+    {
+        float round = (GlobalItems.stepCount / stepDivider);
+        stepBonus = (int)(round + 0.5f);
+    }
+
     public void SkillOne()
     {
-        multiplier = skillMultiplier;
+        CalculateStepBonus();
+        multiplier = skillMultiplier + stepBonus;
         if (!skillOneActive)
         {
             skillOneActive = true;

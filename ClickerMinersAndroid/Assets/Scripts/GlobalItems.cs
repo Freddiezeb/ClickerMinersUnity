@@ -5,6 +5,10 @@ using UnityEngine;
 
 public static class GlobalItems {
 
+    public static float passiveWaitTime = 1;
+
+    public static int stepCount = 0;
+
     public static int[] displayTimes = displayTimes = new int[]{
             1,
             2,

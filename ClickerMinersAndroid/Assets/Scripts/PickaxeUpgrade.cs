@@ -12,6 +12,8 @@ public class PickaxeUpgrade : MonoBehaviour
     public float incomeMultiplier;
     public float upgradeMultiplier;
 
+    private float calculatedIncrease;
+
     public Text levelDisplay;
     public Text costDisplay;
 
@@ -50,8 +52,20 @@ public class PickaxeUpgrade : MonoBehaviour
 
     public void IncreaseCurrency(int skillMultiplier)
     {
-        GlobalClicks.currencyCount += (CalculateIncreasedCurrency(incomeMultiplier, pickaxeLevel, activeMineBonus)) * skillMultiplier;
+        calculatedIncrease = (CalculateIncreasedCurrency(incomeMultiplier, pickaxeLevel, activeMineBonus)) * skillMultiplier;
+        //calculatedIncrease = RoundUp(calculatedIncrease, 100);
+        GlobalClicks.currencyCount += calculatedIncrease;
         sparkParticle.Play();
+    }
+
+    public float RoundUp(float number, float precision)
+    {
+        ////calculatedIncrease = (int)(calculatedIncrease + 0.5f);
+        //int factor = (float)(Math.Pow(10, precision));
+        //return Math.Round(number * factor) / factor;
+        float temp = number * precision;
+        int tempint = (int)temp;
+        return tempint / precision;
     }
 
     private float CalculateIncreasedCurrency(float multiplier, int level, float mineBonus)
@@ -80,6 +94,7 @@ public class PickaxeUpgrade : MonoBehaviour
 
     private void UpgradeCostIncrease()
     {
-        upgradeCost += GlobalItems.CalculateNewPrice(baseCost, upgradeMultiplier, pickaxeLevel);
+        float temp = RoundUp(GlobalItems.CalculateNewPrice(baseCost, upgradeMultiplier, pickaxeLevel), 10);
+        upgradeCost += temp;
     }
 }

@@ -8,15 +8,33 @@ public class GlobalClicks : MonoBehaviour
 {
     public GameObject currencyDisplay;
     public static double currencyCount;
-	private Text displayText;
+    private Text displayText;
 
-	void Start()
-	{
-		displayText = currencyDisplay.GetComponent<Text> (); 
-	}
+    private double displayCurrency;
+    double temp = 500;
+
+    void Start()
+    {
+        displayText = currencyDisplay.GetComponent<Text>();
+    }
 
     void Update()
     {
-		displayText.text = "$" + currencyCount;
+        if (RoundUp(currencyCount, 1) < 500)
+        {
+            displayCurrency = RoundUp(currencyCount, 100);
+        }
+        else
+        {
+            displayCurrency = RoundUp(currencyCount, 1);
+        }
+            displayText.text = "$" + displayCurrency;
+    }
+
+    public double RoundUp(double number, float precision)
+    {
+        double temp = number * precision;
+        int tempint = (int)temp;
+        return tempint / precision;
     }
 }

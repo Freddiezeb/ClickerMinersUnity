@@ -31,6 +31,11 @@ public class BuyMine : MonoBehaviour
 
     TextFader textFader;
 
+    public Text mineInfoLeft;
+    public Text mineInfoRight;
+    public Text passiveMinerLeft;
+    public Text passiveMinerRight;
+
 	void Start ()
 	{
 		Initialize ();
@@ -73,7 +78,7 @@ public class BuyMine : MonoBehaviour
 			{
 				if (!minerUpgrade.minerList [i].Unlocked) 
 				{
-					minerUpgrade.MinerPayment (minerUpgrade.minerList [i]);
+					minerUpgrade.MinerPayment (minerUpgrade.minerList [i], passiveMinerRight);
 					return;
 				} 
 				else if (minerUpgrade.minerList [i].Unlocked) 
@@ -94,6 +99,7 @@ public class BuyMine : MonoBehaviour
 			if (mineList [i].Active) 
 			{
 				minerUpgrade.ResearchUpgrade (minerUpgrade.minerList[i]);
+                passiveMinerRight.text = "$/S: " + minerUpgrade.minerList[i].PassiveBonus.ToString();
 				return;
 			}
 		}
@@ -118,6 +124,10 @@ public class BuyMine : MonoBehaviour
 			minerUpgrade.ShowMinerCanvas (true);
 			setStoneSprite (spriteIndex);
 			setStoneBkSprite (spriteIndex);
+            mineInfoLeft.text = mine.Name + " MINE";
+            mineInfoRight.text = "BONUS: $" + mine.MineBonus;
+            passiveMinerLeft.text = "MINER";
+            passiveMinerRight.text = "$/S: 0";
 		}
 		else
 		{
@@ -145,6 +155,11 @@ public class BuyMine : MonoBehaviour
 				minerUpgrade.ShowMinerCanvas (false);
 				setStoneSprite (0);
 				setStoneBkSprite (0);
+                mineInfoLeft.text = "STONE MINE";
+                mineInfoRight.text = "BONUS: $0";
+                passiveMinerLeft.text = "ALL MINERS";
+
+                passiveMinerRight.text = "$/S: " + AllMinerIncome().ToString();// all miners income 
 			} 
 			else 
 			{
@@ -154,10 +169,29 @@ public class BuyMine : MonoBehaviour
 				minerUpgrade.ShowMinerCanvas (true);
 				setStoneSprite (spriteIndex);
 				setStoneBkSprite (spriteIndex);
+                mineInfoLeft.text = mine.Name + " MINE";
+                mineInfoRight.text = "BONUS: $" + mine.MineBonus;
+                passiveMinerLeft.text = "MINER";
+                int index = mineList.FindIndex(i => i.Name == mine.Name);
+                if (minerUpgrade.minerList[index].Unlocked)
+                    passiveMinerRight.text = "$/S: " + minerUpgrade.minerList[index].PassiveBonus.ToString();
+                else
+                    passiveMinerRight.text = "$/S: 0";
 			}
 		}
 		Debug.Log (mine.Name + " Active: " + mine.Active.ToString ());
 	}
+
+    float AllMinerIncome()
+    {
+        float sum = 0;
+        for (int i = 0; i < minerUpgrade.minerList.Count; i++)
+        {
+            if (minerUpgrade.minerList[i].Unlocked)
+                sum += minerUpgrade.minerList[i].PassiveBonus;
+        }
+            return sum;
+    }
 
 	void HandelResearchCanvas(Mine mine)
 	{

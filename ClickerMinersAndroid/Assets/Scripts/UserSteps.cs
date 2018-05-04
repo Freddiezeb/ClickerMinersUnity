@@ -7,18 +7,10 @@ public class UserSteps : MonoBehaviour {
 
     AndroidJavaClass androidClass;
     public Text displaySteps;
-	// Use this for initialization
-	void Start () {
-		
-	}
 
     public void getSteps(string message)
     {
         displaySteps.text = "Steps: " + message;
+        GlobalItems.stepCount = int.Parse(message);
     }
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
 }
