@@ -181,7 +181,7 @@ public class MinerUpgrade : MonoBehaviour
 
     void IncreasePassiveBonus(Miner miner)
     {
-        miner.PassiveBonus += GlobalItems.CalculateNewPrice(miner.PassiveBonus, 1.15f, miner.ResearchLevel);
+        miner.PassiveBonus += (GlobalItems.CalculateNewPrice(miner.PassiveStartBonus, 1.15f, miner.ResearchLevel));
     }
 
     public void SetResearchText(Miner miner)
@@ -239,7 +239,7 @@ public class MinerUpgrade : MonoBehaviour
     {
         if (miner.Unlocked)
         {
-            GlobalClicks.currencyCount += miner.PassiveBonus;
+            GlobalClicks.currencyCount += miner.PassiveBonus * GlobalItems.minerPassiveMultiplier;
         }
     }
 }

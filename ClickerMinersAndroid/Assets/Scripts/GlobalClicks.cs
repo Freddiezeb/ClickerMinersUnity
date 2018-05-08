@@ -22,7 +22,7 @@ public class GlobalClicks : MonoBehaviour
     {
         if (RoundUp(currencyCount, 1) < 500)
         {
-            displayCurrency = RoundUp(currencyCount, 100);
+            displayCurrency = RoundUp(currencyCount, 10);
         }
         else
         {

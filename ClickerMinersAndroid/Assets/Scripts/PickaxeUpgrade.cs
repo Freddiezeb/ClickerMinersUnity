@@ -11,11 +11,13 @@ public class PickaxeUpgrade : MonoBehaviour
     public float upgradeCost;
     public float incomeMultiplier;
     public float upgradeMultiplier;
+    private float displayPickaxeIncome;
 
     private float calculatedIncrease;
 
     public Text levelDisplay;
     public Text costDisplay;
+    public Text pickaxeIncome;
 
     public static float activeMineBonus = 0;
 
@@ -50,7 +52,27 @@ public class PickaxeUpgrade : MonoBehaviour
         }
     }
 
-    public void IncreaseCurrency(int skillMultiplier)
+    void Update()
+    {
+        if (RoundUp(calculatedIncrease, 1) < 500)
+        {
+            displayPickaxeIncome = RoundUp(calculatedIncrease, 10);
+        }
+        else
+        {
+            displayPickaxeIncome = RoundUp(calculatedIncrease, 1);
+        }
+        pickaxeIncome.text = "$" + displayPickaxeIncome;
+    }
+
+    public double RoundUp(double number, float precision)
+    {
+        double temp = number * precision;
+        int tempint = (int)temp;
+        return tempint / precision;
+    }
+
+    public void IncreaseCurrency(float skillMultiplier)
     {
         calculatedIncrease = (CalculateIncreasedCurrency(incomeMultiplier, pickaxeLevel, activeMineBonus)) * skillMultiplier;
         //calculatedIncrease = RoundUp(calculatedIncrease, 100);

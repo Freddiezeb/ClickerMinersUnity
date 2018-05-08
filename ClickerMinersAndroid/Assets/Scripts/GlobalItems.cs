@@ -9,6 +9,8 @@ public static class GlobalItems {
 
     public static int stepCount = 0;
 
+    public static float minerPassiveMultiplier = 1;
+
     public static int[] displayTimes = displayTimes = new int[]{
             1,
             2,
