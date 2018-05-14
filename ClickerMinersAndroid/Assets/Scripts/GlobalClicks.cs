@@ -11,11 +11,12 @@ public class GlobalClicks : MonoBehaviour
     private Text displayText;
 
     private double displayCurrency;
-    double temp = 500;
+    //double temp = 500;
 
     void Start()
     {
         displayText = currencyDisplay.GetComponent<Text>();
+        currencyCount = 3000;
     }
 
     void Update()

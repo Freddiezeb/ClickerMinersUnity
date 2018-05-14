@@ -29,6 +29,8 @@ public class BuyMine : MonoBehaviour
 
 	public Sprite[] stoneBkSprites;
 
+    public Sprite[] mineCartActiveSprites;
+
     TextFader textFader;
 
     public Text mineInfoLeft;
