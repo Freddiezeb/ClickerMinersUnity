@@ -29,7 +29,7 @@ public class BuyMine : MonoBehaviour
 
 	public Sprite[] stoneBkSprites;
 
-    public Sprite[] mineCartActiveSprites;
+    public GameObject[] mineCartActiveSprites;
 
     TextFader textFader;
 
@@ -128,6 +128,7 @@ public class BuyMine : MonoBehaviour
 			setStoneBkSprite (spriteIndex);
             mineInfoLeft.text = mine.Name + " MINE";
             mineInfoRight.text = "BONUS: $" + mine.MineBonus;
+            mineCartActiveSprites[index].active = true;
             passiveMinerLeft.text = "MINER";
             passiveMinerRight.text = "$/S: 0";
 		}
@@ -155,6 +156,8 @@ public class BuyMine : MonoBehaviour
 				mine.Active = false;
                 PickaxeUpgrade.activeMineBonus = 0f;
 				minerUpgrade.ShowMinerCanvas (false);
+                int index = mineList.FindIndex(i => i.Name == mine.Name);
+                mineCartActiveSprites[index].active = false;
 				setStoneSprite (0);
 				setStoneBkSprite (0);
                 mineInfoLeft.text = "STONE MINE";
@@ -175,6 +178,7 @@ public class BuyMine : MonoBehaviour
                 mineInfoRight.text = "BONUS: $" + mine.MineBonus;
                 passiveMinerLeft.text = "MINER";
                 int index = mineList.FindIndex(i => i.Name == mine.Name);
+                mineCartActiveSprites[index].active = true;
                 if (minerUpgrade.minerList[index].Unlocked)
                     passiveMinerRight.text = "$/S: " + minerUpgrade.minerList[index].PassiveBonus.ToString();
                 else
@@ -226,6 +230,7 @@ public class BuyMine : MonoBehaviour
 		for (int i = 0; i < mineList.Count; i++) 
 		{
 			mineList [i].Active = false;
+            mineCartActiveSprites[i].active = false;
 		}
 		currentMine.Active = isActive;
 	}
